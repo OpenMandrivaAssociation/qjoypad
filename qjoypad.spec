@@ -74,7 +74,6 @@ Icon=%{name}
 Terminal=false
 Type=Application
 Categories=Qt;TrayIcon;Settings;X-MandrivaLinux-System-Configuration-Other;
-Encoding=UTF-8
 EOF
 
 %files
