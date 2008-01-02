@@ -15,6 +15,7 @@ Source3:	%{name}-48x48.png.bz2
 Group:		System/Kernel and hardware
 License:	GPL
 URL:		http://qjoypad.sourceforge.net/
+BuildRoot:	%_tmppath/%{name}-build
 BuildRequires:	qt3-devel
 BuildRequires:	libxtst-devel
 
