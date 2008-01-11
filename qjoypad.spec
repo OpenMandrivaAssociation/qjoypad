@@ -52,17 +52,6 @@ install -D -m 644 %{name}-48x48.png $RPM_BUILD_ROOT%{_liconsdir}/%{name}.png
 install -D -m 644 %{name}-32x32.png $RPM_BUILD_ROOT%{_iconsdir}/%{name}.png
 install -D -m 644 %{name}-16x16.png $RPM_BUILD_ROOT%{_miconsdir}/%{name}.png
 
-install -d -m 755 $RPM_BUILD_ROOT%{_menudir}
-cat >$RPM_BUILD_ROOT%{_menudir}/%{name} <<EOF
-?package(%{name}): \
-	command="%{_bindir}/%{name}" \
-	needs="X11" \
-	section="System/Configuration/Other" \
-	icon="%{name}.png" \
-	title="%{longname}" \
-	longtitle="%{summary}" \
-	xdg="true"
-EOF
 
 install -d -m 755 %{buildroot}%{_datadir}/applications
 cat > %{buildroot}%{_datadir}/applications/mandriva-%{name}.desktop << EOF
@@ -83,7 +72,6 @@ EOF
 %{_liconsdir}/%{name}.png
 %{_iconsdir}/%{name}.png
 %{_miconsdir}/%{name}.png
-%{_menudir}/%{name}
 %{_datadir}/pixmaps/%{name}
 %{_datadir}/applications/mandriva-%{name}.desktop
 
