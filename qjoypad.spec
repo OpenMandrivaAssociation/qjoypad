@@ -1,7 +1,7 @@
 %define	name   qjoypad
 %define	longname  QJoyPad
 %define	version 3.4.1
-%define rel	1
+%define rel	2
 %define	release %mkrel %rel
 
 Summary:	%{longname} - Emulate keyboard or mouse actions with a joystick
@@ -12,6 +12,7 @@ Source0:	http://prdownloads.sourceforge.net/qjoypad/%{name}-%{version}.tar.bz2
 Source1:	%{name}-16x16.png.bz2
 Source2:	%{name}-32x32.png.bz2
 Source3:	%{name}-48x48.png.bz2
+Patch0:		qjoypad-sleep.patch
 Group:		System/Kernel and hardware
 License:	GPL
 URL:		http://qjoypad.sourceforge.net/
@@ -27,6 +28,7 @@ It comes with a convenient and easy-to-use interface.
 %prep
 
 %setup -q
+%patch0 -p1
 bzcat %{SOURCE1} > %{name}-16x16.png
 bzcat %{SOURCE2} > %{name}-32x32.png
 bzcat %{SOURCE3} > %{name}-48x48.png
