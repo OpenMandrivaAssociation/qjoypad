@@ -1,7 +1,7 @@
 %define	name   qjoypad
 %define	longname  QJoyPad
 %define	version 3.4.1
-%define rel	2
+%define rel	3
 %define	release %mkrel %rel
 
 Summary:	%{longname} - Emulate keyboard or mouse actions with a joystick
