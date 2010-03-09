@@ -3,11 +3,8 @@
 Summary:	%{longname} - Emulate keyboard or mouse actions with a joystick
 Name:		qjoypad
 Version:	4.1.0
-Release:	%mkrel 1
+Release:	%mkrel 2
 Source0:	http://downloads.sourceforge.net/project/qjoypad/qjoypad/%{name}-4.1/%{name}-%{version}.tar.gz
-Source1:	%{name}-16x16.png.bz2
-Source2:	%{name}-32x32.png.bz2
-Source3:	%{name}-48x48.png.bz2
 Group:		System/Kernel and hardware
 License:	GPLv2
 URL:		http://qjoypad.sourceforge.net/
@@ -23,9 +20,6 @@ It comes with a convenient and easy-to-use interface.
 %prep
 
 %setup -q
-bzcat %{SOURCE1} > %{name}-16x16.png
-bzcat %{SOURCE2} > %{name}-32x32.png
-bzcat %{SOURCE3} > %{name}-48x48.png
 
 perl -pi -e 's,^doc\.extra,#doc\.extra,' src/qjoypad.pro
 sed -i '/icons\.extra/s,\$\${icons\.path},\$\(INSTALL_ROOT\)\$\${icons\.path},g' src/qjoypad.pro
@@ -42,10 +36,16 @@ rm -rf %{buildroot}
 %makeinstall INSTALL_ROOT=%{buildroot} -C src
 
 #icons for the menu
-install -D -m 644 %{name}-48x48.png %{buildroot}%{_liconsdir}/%{name}.png
-install -D -m 644 %{name}-32x32.png %{buildroot}%{_iconsdir}/%{name}.png
-install -D -m 644 %{name}-16x16.png %{buildroot}%{_miconsdir}/%{name}.png
+pushd icons
+	convert gamepad4-64x64.png -resize 48x48 %{name}-48x48.png
+	install -D -m 644 %{name}-48x48.png %{buildroot}%{_liconsdir}/%{name}.png
 
+	convert gamepad4-64x64.png -resize 32x32 %{name}-32x32.png
+	install -D -m 644 %{name}-32x32.png %{buildroot}%{_iconsdir}/%{name}.png
+
+	convert gamepad4-64x64.png -resize 16x16 %{name}-16x16.png
+	install -D -m 644 %{name}-16x16.png %{buildroot}%{_miconsdir}/%{name}.png
+popd
 
 install -d -m 755 %{buildroot}%{_datadir}/applications
 cat > %{buildroot}%{_datadir}/applications/mandriva-%{name}.desktop << EOF
