@@ -3,7 +3,7 @@
 Summary:	%{longname} - Emulate keyboard or mouse actions with a joystick
 Name:		qjoypad
 Version:	4.1.0
-Release:	%mkrel 2
+Release:	%mkrel 3
 Source0:	http://downloads.sourceforge.net/project/qjoypad/qjoypad/%{name}-4.1/%{name}-%{version}.tar.gz
 Group:		System/Kernel and hardware
 License:	GPLv2
