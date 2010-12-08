@@ -11,6 +11,7 @@ URL:		http://qjoypad.sourceforge.net/
 BuildRoot:	%_tmppath/%{name}-build
 BuildRequires:	qt4-devel
 BuildRequires:	libxtst-devel
+BuildRequires:	imagemagick
 
 %description
 QJoyPad converts input from a gamepad or joystick into key-presses or mouse 
