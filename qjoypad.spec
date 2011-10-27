@@ -29,7 +29,7 @@ sed -i '/icons\.extra/s,\$\${icons\.path},\$\(INSTALL_ROOT\)\$\${icons\.path},g'
 cd src
 ./config --prefix=%{_prefix}
 
-%make
+%make LIBS='-lX11'
 
 %install
 rm -rf %{buildroot}
