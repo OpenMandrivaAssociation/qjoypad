@@ -3,12 +3,12 @@
 Summary:	%{longname} - Emulate keyboard or mouse actions with a joystick
 Name:		qjoypad
 Version:	4.1.0
-Release:	%mkrel 3
+Release:	4
 Source0:	http://downloads.sourceforge.net/project/qjoypad/qjoypad/%{name}-4.1/%{name}-%{version}.tar.gz
 Group:		System/Kernel and hardware
 License:	GPLv2
 URL:		http://qjoypad.sourceforge.net/
-BuildRoot:	%_tmppath/%{name}-build
+
 BuildRequires:	qt4-devel
 BuildRequires:	libxtst-devel
 BuildRequires:	imagemagick
@@ -49,7 +49,7 @@ pushd icons
 popd
 
 install -d -m 755 %{buildroot}%{_datadir}/applications
-cat > %{buildroot}%{_datadir}/applications/mandriva-%{name}.desktop << EOF
+cat > %{buildroot}%{_datadir}/applications/%{name}.desktop << EOF
 [Desktop Entry]
 Name=%{longname}
 Comment=Emulate keyboard or mouse actions with a joystick
@@ -81,4 +81,4 @@ rm -rf %{buildroot}
 %{_iconsdir}/%{name}.png
 %{_miconsdir}/%{name}.png
 %{_datadir}/pixmaps/%{name}
-%{_datadir}/applications/mandriva-%{name}.desktop
+%{_datadir}/applications/%{name}.desktop
