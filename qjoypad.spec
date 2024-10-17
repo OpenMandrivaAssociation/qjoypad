@@ -7,7 +7,7 @@ Release:	4
 Source0:	http://downloads.sourceforge.net/project/qjoypad/qjoypad/%{name}-4.1/%{name}-%{version}.tar.gz
 Group:		System/Kernel and hardware
 License:	GPLv2
-URL:		http://qjoypad.sourceforge.net/
+URL:		https://qjoypad.sourceforge.net/
 
 BuildRequires:	qt4-devel
 BuildRequires:	libxtst-devel
